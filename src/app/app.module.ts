@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '../material/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserService } from '../services/user.service'
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -10,9 +15,15 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  exports: [MaterialModule, FormsModule, ReactiveFormsModule],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
